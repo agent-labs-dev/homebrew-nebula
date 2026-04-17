@@ -1,0 +1,46 @@
+name: Audit formula
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: brew audit
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Until the first prod release populates Formula/, there's
+          # nothing to audit — exit cleanly so new empty taps pass CI.
+          shopt -s nullglob
+          formulas=(Formula/*.rb)
+          if (( ${#formulas[@]} == 0 )); then
+            echo "No formulas to audit yet."
+            exit 0
+          fi
+          brew audit --strict --online "${formulas[@]}"
+
+      - name: Formula syntax + style
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          formulas=(Formula/*.rb)
+          if (( ${#formulas[@]} == 0 )); then
+            exit 0
+          fi
+          brew style "${formulas[@]}"
