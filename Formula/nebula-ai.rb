@@ -1,28 +1,28 @@
 class NebulaAi < Formula
   desc "CLI/TUI for the nebula.gg AI task orchestration platform"
-  homepage "https://github.com/agent-labs-dev/nebula-cli"
-  version "0.0.17"
+  homepage "https://github.com/agent-labs-dev/nebula-desktop"
+  version "0.0.18"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://cli-assets.nebula-dev.ai/production/v0.0.17/darwin-arm64/nebula-ai-v0.0.17-darwin-arm64.tar.gz"
-      sha256 "646834ac14c62f8882c74a7b2f5a88cd16500851e3832211e7357fcb1db56bdf"
+      url "https://app-assets.nebula.gg/cli/stable/v0.0.18/darwin-arm64/nebula-ai-v0.0.18-darwin-arm64.tar.gz"
+      sha256 "8d9c7be8196cc70c1a3ff65526a5542debc65c50c3efe96a4f8427af751edba5"
     end
     on_intel do
-      url "https://cli-assets.nebula-dev.ai/production/v0.0.17/darwin-x64/nebula-ai-v0.0.17-darwin-x64.tar.gz"
-      sha256 "7056704869b007cf1ef2a47b2f18c91d7bebea688f570d93dd36087965366553"
+      url "https://app-assets.nebula.gg/cli/stable/v0.0.18/darwin-x64/nebula-ai-v0.0.18-darwin-x64.tar.gz"
+      sha256 "1f604e5201fda9c787d1d6ba1194212ba4ca9074dd72c3560b8d16525dbaf666"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://cli-assets.nebula-dev.ai/production/v0.0.17/linux-arm64/nebula-ai-v0.0.17-linux-arm64.tar.gz"
-      sha256 "f89147b4741df18139d2322df5740e1670e7553c6927d5f26a02b972e0ed1623"
+      url "https://app-assets.nebula.gg/cli/stable/v0.0.18/linux-arm64/nebula-ai-v0.0.18-linux-arm64.tar.gz"
+      sha256 "6e77d25f4f7f18ed73600167aa2b69254cb88aaaf8bc5d745d4de8310cedb3bb"
     end
     on_intel do
-      url "https://cli-assets.nebula-dev.ai/production/v0.0.17/linux-x64/nebula-ai-v0.0.17-linux-x64.tar.gz"
-      sha256 "ad413b7ae9ffa5f885a5532007dc286473f124e92a995e61903af98f5bcfac18"
+      url "https://app-assets.nebula.gg/cli/stable/v0.0.18/linux-x64/nebula-ai-v0.0.18-linux-x64.tar.gz"
+      sha256 "abd4c7b458f7a7e7f8a0b36a6d823db3bab6ac773b76009a7583c07fe577930a"
     end
   end
 
