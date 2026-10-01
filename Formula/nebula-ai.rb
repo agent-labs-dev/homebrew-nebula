@@ -1,28 +1,28 @@
 class NebulaAi < Formula
   desc "CLI/TUI for the nebula.gg AI task orchestration platform"
   homepage "https://github.com/agent-labs-dev/nebula-desktop"
-  version "0.1.11"
+  version "0.1.12"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://app-assets.nebula.gg/cli/stable/v0.1.11/darwin-arm64/nebula-ai-v0.1.11-darwin-arm64.tar.gz"
-      sha256 "fcc3c76f422cc6da3ada22d268e30108626aa445a54da3642666bce08a9e781f"
+      url "https://app-assets.nebula.gg/cli/stable/v0.1.12/darwin-arm64/nebula-ai-v0.1.12-darwin-arm64.tar.gz"
+      sha256 "576b413a031cbe2654c20e215df3bf5063523ba6839009baf323117b1ff8543c"
     end
     on_intel do
-      url "https://app-assets.nebula.gg/cli/stable/v0.1.11/darwin-x64/nebula-ai-v0.1.11-darwin-x64.tar.gz"
-      sha256 "1a578e9da33b39379e4a701f26161ef30a0386a08770d0301184e94c8584741a"
+      url "https://app-assets.nebula.gg/cli/stable/v0.1.12/darwin-x64/nebula-ai-v0.1.12-darwin-x64.tar.gz"
+      sha256 "795e4f7d302be43b4402be86065a615976e906c1cf65501ce6ef75572c07ebd8"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://app-assets.nebula.gg/cli/stable/v0.1.11/linux-arm64/nebula-ai-v0.1.11-linux-arm64.tar.gz"
-      sha256 "24d07b0b09170a80d31796f46303acf472d31209f991a9e0e582b619190b842d"
+      url "https://app-assets.nebula.gg/cli/stable/v0.1.12/linux-arm64/nebula-ai-v0.1.12-linux-arm64.tar.gz"
+      sha256 "f84333a33c386755a5d307ee0acde2ec8c89bf6b7a2288a47d1416715e6ef8f4"
     end
     on_intel do
-      url "https://app-assets.nebula.gg/cli/stable/v0.1.11/linux-x64/nebula-ai-v0.1.11-linux-x64.tar.gz"
-      sha256 "3997906031c3e98e8e2154eeb83e40271d6997feee79cf370a7c861d8666fd4b"
+      url "https://app-assets.nebula.gg/cli/stable/v0.1.12/linux-x64/nebula-ai-v0.1.12-linux-x64.tar.gz"
+      sha256 "16cabb120615200f960099cdbaacc5e96f95ca111d5723886da832b706e5e048"
     end
   end
 
