@@ -7,8 +7,10 @@ class NebulaAi < Formula
   on_macos do
     depends_on arch: :arm64
 
-    url "https://app-assets.nebula.gg/cli/stable/v0.1.42/darwin-arm64/nebula-ai-v0.1.42-darwin-arm64.tar.gz"
-    sha256 "92e3c40b7f8de0bcc6b33cf370b9bb198f0c6892466f8171d176ebb190c5139f"
+    on_arm do
+      url "https://app-assets.nebula.gg/cli/stable/v0.1.42/darwin-arm64/nebula-ai-v0.1.42-darwin-arm64.tar.gz"
+      sha256 "92e3c40b7f8de0bcc6b33cf370b9bb198f0c6892466f8171d176ebb190c5139f"
+    end
   end
 
   on_linux do
