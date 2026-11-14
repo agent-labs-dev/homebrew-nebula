@@ -1,16 +1,13 @@
 class NebulaAi < Formula
   desc "CLI/TUI for the nebula.gg AI task orchestration platform"
   homepage "https://github.com/agent-labs-dev/nebula-desktop"
+  url "https://app-assets.nebula.gg/cli/stable/v0.1.42/darwin-arm64/nebula-ai-v0.1.42-darwin-arm64.tar.gz"
   version "0.1.42"
+  sha256 "92e3c40b7f8de0bcc6b33cf370b9bb198f0c6892466f8171d176ebb190c5139f"
   license "MIT"
 
   on_macos do
     depends_on arch: :arm64
-
-    on_arm do
-      url "https://app-assets.nebula.gg/cli/stable/v0.1.42/darwin-arm64/nebula-ai-v0.1.42-darwin-arm64.tar.gz"
-      sha256 "92e3c40b7f8de0bcc6b33cf370b9bb198f0c6892466f8171d176ebb190c5139f"
-    end
   end
 
   on_linux do
