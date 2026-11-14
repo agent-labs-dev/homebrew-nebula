@@ -49,6 +49,14 @@ jobs:
           done
           brew audit --strict --online "${names[@]}"
 
+      # Loads every formula as each OS and architecture, so one that only
+      # evaluates on the runner's own platform fails here.
+      - name: Read all platforms
+        shell: bash
+        env:
+          TAP: ${{ steps.homebrew.outputs.tap-name }}
+        run: brew readall --os=all --arch=all "$TAP"
+
       - name: Formula syntax + style
         shell: bash
         run: |
