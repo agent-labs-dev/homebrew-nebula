@@ -55,9 +55,7 @@ jobs:
         shell: bash
         env:
           TAP: ${{ steps.homebrew.outputs.tap-name }}
-        run: |
-          brew readall --os=all --arch=all "$TAP"
-          brew info --json=v2 --variations "$TAP/nebula-ai" | jq '.formulae[0] | {urls, variations}' || brew info --json=v2 "$TAP/nebula-ai" | jq '.formulae[0] | {urls, variations}'
+        run: brew readall --os=all --arch=all "$TAP"
 
       - name: Formula syntax + style
         shell: bash
