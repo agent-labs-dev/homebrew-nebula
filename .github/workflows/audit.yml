@@ -10,23 +10,28 @@ permissions:
   contents: read
 
 concurrency:
-  group: audit-${{ github.ref }}
-  cancel-in-progress: true
+  group: audit-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   audit:
     name: brew audit
-    runs-on: macos-latest
+    runs-on: macos-26
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
+      # Taps this checkout as agent-labs-dev/nebula (tap-name output).
       - name: Set up Homebrew
+        id: homebrew
         uses: Homebrew/actions/setup-homebrew@f9676f1ffe2e1a720f81b2c54c51cfb99915ec14 # main, 2026-10-14
 
       - name: Audit
         shell: bash
+        env:
+          TAP: ${{ steps.homebrew.outputs.tap-name }}
         run: |
           set -euo pipefail
           # Until the first prod release populates Formula/, there's
@@ -37,7 +42,20 @@ jobs:
             echo "No formulas to audit yet."
             exit 0
           fi
-          brew audit --strict --online "${formulas[@]}"
+          # brew audit takes formula names, not paths.
+          names=()
+          for formula in "${formulas[@]}"; do
+            names+=("$TAP/$(basename "$formula" .rb)")
+          done
+          brew audit --strict --online "${names[@]}"
+
+      # Loads every formula as each OS and architecture, so one that only
+      # evaluates on the runner's own platform fails here.
+      - name: Read all platforms
+        shell: bash
+        env:
+          TAP: ${{ steps.homebrew.outputs.tap-name }}
+        run: brew readall --os=all --arch=all "$TAP"
 
       - name: Formula syntax + style
         shell: bash
